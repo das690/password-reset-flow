@@ -1,0 +1,51 @@
+/* 1. Set the beautiful global background */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /* I put a placeholder dark abstract image here. 
+     You can replace this URL with the exact image you showed me! */
+  background-image: url('/blur-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  /* Adds a slight dark tint over the whole image so white text stays readable */
+  background-color: rgba(0, 0, 0, 0.3); 
+}
+
+/* 2. The Glassmorphism Card Class */
+.glass-card {
+  /* Semi-transparent dark background */
+  background: rgba(20, 20, 20, 0.45) !important; 
+  /* THE MAGIC: This blurs the background image directly behind the card */
+  backdrop-filter: blur(16px); 
+  -webkit-backdrop-filter: blur(16px); 
+  /* A very faint, translucent white border for the "glass edge" effect */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important; 
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4) !important; 
+}
+
+/* 3. The Glassmorphism Input Fields */
+.glass-input {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+}
+
+.glass-input:focus {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border-color: #0d6efd !important; /* Bootstrap blue */
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+}
+
+/* Clean up placeholder text color */
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
