@@ -28,7 +28,7 @@ const ResetPassword = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.put(`http://localhost:5000/reset-password/${token}`, { 
+      const response = await axios.put(`https://reset-backend-hyqf.onrender.com/reset-password/${token}`, { 
         password 
       });
       

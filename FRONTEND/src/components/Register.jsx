@@ -17,7 +17,7 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/register', { name, email, password });
+      const response = await axios.post('https://reset-backend-hyqf.onrender.com/register', { name, email, password });
       setMessage(response.data.message);
       setName('');
       setEmail('');

@@ -15,7 +15,7 @@ const Login = () => {
     setError('');
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/login', { email, password });
+      const response = await axios.post('https://reset-backend-hyqf.onrender.com/login', { email, password });
       localStorage.setItem('token', response.data.token);
       navigate('/dashboard');
     } catch (err) {
