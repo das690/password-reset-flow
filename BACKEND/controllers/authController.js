@@ -17,7 +17,7 @@ exports.forgotPassword = async (req, res) => {
     user.resetPasswordExpires = Date.now() + 15 * 60 * 1000; 
     await user.save();
 
-    const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+    const resetUrl = `https://password-resetflow-task.netlify.app/reset-password/${resetToken}`;
     const message = `You are receiving this email because you requested a password reset.\n\nPlease click on the following link to complete the process:\n\n${resetUrl}`;
 
     try {
@@ -29,6 +29,7 @@ exports.forgotPassword = async (req, res) => {
 
       res.status(200).json({ message: 'Email sent successfully!' });
     } catch (error) {
+      console.log("error");
       user.resetPasswordToken = undefined;
       user.resetPasswordExpires = undefined;
       await user.save();
