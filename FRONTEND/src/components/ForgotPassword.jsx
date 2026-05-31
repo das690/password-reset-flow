@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // 1. Added useNavigate here
 import axios from 'axios';
 
 const ForgotPassword = () => {
+  const navigate = useNavigate(); // 2. Initialized the hook here
+
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -29,13 +32,23 @@ const ForgotPassword = () => {
   };
 
   return (
-    
     <div className="container-fluid min-vh-100 text-light p-0 m-0">
       <div className="row justify-content-center align-items-center min-vh-100 g-0">
         <div className="col-12 col-md-8 col-lg-5 col-xl-4 p-3">
           
           <div className="card glass-card text-light shadow-lg p-4 rounded-4 animate__animated animate__fadeIn">
             
+            {/* 3. Added the Back Button right here at the top of the card */}
+            <div className="text-start mb-2">
+              <button 
+                type="button"
+                onClick={() => navigate(-1)} 
+                className="btn btn-link text-light text-decoration-none p-0 opacity-75 custom-back-btn"
+              >
+                ← Back
+              </button>
+            </div>
+
             <div className="text-center mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" className="bi bi-lock-fill text-primary mb-2" viewBox="0 0 16 16">
                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
